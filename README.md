@@ -13,6 +13,26 @@ via le lien ci-dessous :
 - https://datasets.imdbws.com/title.basics.tsv.gz
 La structure de données utilisée dans les fichiers est décrite dans le lien ci-dessous :
 - https://www.imdb.com/interfaces/
+
 Le besoin formulé par le product owner est le suivant :
 - En tant qu’utilisateur je souhaite récupérer dans une file RabbitMQ l’intégralité des
 titres originaux de type film et du genre comédie.
+
+## Remarques
+
+Le fichier est trop gros pour être herbergé sur github directement. Il doit être ajouter dans Comedy/resource/.
+
+Bibilothèques utilisées :
+
+- Akka Stream 
+- Alpakka pour le parsing du fichier https://doc.akka.io/docs/alpakka/current/data-transformations/csv.html
+- op-rabbit pour publier dans une file RabbitMQ https://github.com/SpinGo/op-rabbit
+
+Pour tester : 
+
+- Le CLI de RabbitMQ avec la commande : rabbitmqctl list_queues
+
+OU
+
+- RabbitMQ Management http://localhost:15672/
+
